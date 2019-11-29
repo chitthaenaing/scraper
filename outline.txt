@@ -1,0 +1,33 @@
+1. Output text file with suitable sub headings and structure
+
+2. The given URL must be assigned to a global variable (http://www.soc.napier.ac.uk/~40009856/CW/)
+
+3. Should output a list of all the unique hyperlinks on the web page and summaries that 'x hyperlinks found' and both relative and absolute links should be extracted
+
+4. Should output separate lists of all the image files and documents found and a summary stating how many were found. Both absolute and relative links should be extracted
+
+5. Should output a nicely formatted list of all the unique email addresses found and a summary that states "x email addresses found". Ideally, you should distinguish addresses found in "mailto:" fields from those included in free text.
+
+6. Should output a list of all the unique numbers found and a summary that states "x phone numbers found". Phone numbers of all common formats should be extracted.
+
+7. Should output md5 hashes of passwords hidden in the source code in a suitable format and should output should list each hash found and
+next to it the cracked password or "no matching password found". ( Use a word lists of common passwords which are already given in moodle)
+
+8. Download the image and document files linked on the page and save them in a directory
+	- Directory name must be constant
+	- Same file names with different url should be downloaded and for each file, report whether the download was successful or not.
+	- Ideally, your code should check whether the directory already exists and create it otherwise; if it does exist, any old content should be removed before downloading. 
+
+9. Analyse the files downloaded
+	- Check if the actual file type (as given by the file signature) matches the filename extension. If there is a mismatch, report the actual file type
+	- Check if any of the files are "known bad files", by comparing their hashes against those given in badfiles.txt. If so, report which bad file they match.
+	- If two or more files had the same original filename, check whether they are the same or whether they differ, and report the outcome
+
+10. Include comprehensive exception handling (error checking)
+
+11. Document your code with module and function doc strings. Additional comments should be used to explain complex code, for example, the regular expressions used. All code used that isn't your own must be fully referenced by citing the specific source (e.g. thespecific stackoverflow page, ideally also the author).
+
+12. The central script which is run to call the code must be called scraper.py
+
+
+# Reports
