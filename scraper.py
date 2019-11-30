@@ -31,13 +31,13 @@ def main():
     print(f'[*] Finish Searching hyperlinks within {searching_end - searching_start} seconds')
     print(f'[*] {total_links["total_links"]} hyperlinks found!')
     print(f'[*] Absolute links: ')
-    for index, hyperlinks in enumerate(absolute_links["absolute_links"]):
-        print(f'\t[{index+1:2d}] {hyperlinks}')
+    for index, hyperlink in enumerate(set(absolute_links["absolute_links"])):
+        print(f'\t[{index+1:2d}] {hyperlink} => {absolute_links["absolute_links"].count(hyperlink)}')
     
     print(f'[x] Relative links: ')
-    for index, hyperlinks in enumerate(relative_links["relative_links"]):
-        print(f'\t[{index+1:2d}] {hyperlinks}')
+    for index, hyperlink in enumerate(set(relative_links["relative_links"])):
+        print(f'\t[{index+1:2d}] {hyperlink} => {relative_links["relative_links"].count(hyperlink)}')
     
-    
+
 if __name__ == '__main__':
     main()

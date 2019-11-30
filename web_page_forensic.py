@@ -11,11 +11,18 @@ def get_hyperlinks(content):
     """ Search hyperlinks in the context and return them """
 
     # finding absolute links
+    # Starts with https or http://
+    # Starts with / (eg. /theme/folder/a.png ) or // (eg. //ajax.googleapis.com/)
+    # Covers the special case like "/media/images/logos/ednapuni_red.png?h=60&amp;la=en&amp;w=215&amp;hash=39DC25ADF6177FF9A1AEB6F9D09B30F47FE593E2"
     absolute_pattern = r'https?://[\w\-\./]+|(?<=[\'\"])/[.\S]*(?=[\'\"])'
     absolute_links = re.findall(absolute_pattern, content.decode())
     absolute_links.sort()
 
     # finding relative links
+    # Starts with characters - a.jpg or folder_one/a.jpg
+    # Starts with dots - ./folder/a.jpg or ../folder/a.jpg
+    # Covers the special case like "ednapuni_red.png?h=60&amp;la=en&amp;w=215&amp;hash=39DC25ADF6177FF9A1AEB6F9D09B30F47FE593E2"
+
     relative_pattern = r'(?<=[\'\"])([\w\-\(\)]+\.[\w\-\%\&\=\;\?]+|[\./]*[\w\-]+/+.*?)(?=[\'\"])'
     relative_links = re.findall(relative_pattern, content.decode())
     relative_links.sort()
