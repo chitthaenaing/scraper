@@ -37,24 +37,22 @@ Absolute Path
 =============
 
 Starts with https or http://
-Starts with / (eg. /theme/folder/a.png )
+Starts with / (eg. /theme/folder/a.png ) or sometimes // (eg. //ajax.googleapis.com/)
 
 
 Regex Pattern for Absolute Path
 ===============================
 
-pattern = r'https?://[\w\-\./]+|(?<=[\'\"])/[\w\-\./]*(?=[\'\"])'
+absolute_pattern = r'https?://[\w\-\./]+|(?<=[\'\"])/[.\S]*(?=[\'\"])'
 
-Regex Pattern Explaination
-==========================
-    There are two separate regular expressions in it. The first one said 'http' or 'https' must contain in the text followed by (://) and any alphanumeric characters, dots(.), dash(-) and forward slash (/) at least more than one.
-
-Note: This pattern will not match in case of some specific characters in the link.
-(eg. /~/media/edinburgh-napier-logo-rev-w300px.png?h=60&amp;la=en&amp;w=240&amp;hash=067F336ECB71280691CEE4642C8AA4400AD3003D)
-Actually, the example link should be matched because it is absolute path but according to our regex expression, the matching pattern will be broken where it encouters special characters like '~'
 
 Relative Path
 =============
 
 Starts with characters - a.jpg or folder_one/a.jpg
 Starts with dots - ./folder/a.jpg or ../folder/a.jpg
+
+Regex Pattern for Relative Path
+===============================
+
+relative_pattern = r'(?<=[\'\"])([\w\-\(\)]+\.[\w\-\%\&\=\;\?]+|[\./]*[\w\-]+/+.*?)(?=[\'\"])'

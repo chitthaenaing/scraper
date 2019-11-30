@@ -17,15 +17,27 @@ def main():
     web_url = "http://www.soc.napier.ac.uk/~40009856/CW/"
     # web_url = "http://www.napier.ac.uk"
     print(f'[*] Retrieving URL - {web_url}')
-    start = time.time()
+    retrieving_start = time.time()
     web_page_content = get_webpage(web_url)
-    end = time.time()
-    print(f'[*] Finish retrieving web contents within {end - start} seconds')
+    retrieving_end = time.time()
+    print(f'[*] Finish retrieving web contents within {retrieving_end - retrieving_start} seconds')
 
     print(f'[*] Searching Hyperlinks')
-    for index, hyperlinks in enumerate(get_hyperlinks(web_page_content)):
+    
+    searching_start = time.time()
+    absolute_links, relative_links, total_links = get_hyperlinks(web_page_content)
+    searching_end = time.time()
+    
+    print(f'[*] Finish Searching hyperlinks within {searching_end - searching_start} seconds')
+    print(f'[*] {total_links["total_links"]} hyperlinks found!')
+    print(f'[*] Absolute links: ')
+    for index, hyperlinks in enumerate(absolute_links["absolute_links"]):
         print(f'\t[{index+1:2d}] {hyperlinks}')
     
-
+    print(f'[x] Relative links: ')
+    for index, hyperlinks in enumerate(relative_links["relative_links"]):
+        print(f'\t[{index+1:2d}] {hyperlinks}')
+    
+    
 if __name__ == '__main__':
     main()

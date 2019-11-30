@@ -11,9 +11,20 @@ def get_hyperlinks(content):
     """ Search hyperlinks in the context and return them """
 
     # finding absolute links
-    absolute_links = re.findall(r'https?://[\w\-\./]+|(?<=[\'\"])/[\w\-\./]*(?=[\'\"])', content.decode())
+    absolute_pattern = r'https?://[\w\-\./]+|(?<=[\'\"])/[.\S]*(?=[\'\"])'
+    absolute_links = re.findall(absolute_pattern, content.decode())
     absolute_links.sort()
-    return absolute_links
+
+    # finding relative links
+    relative_pattern = r'(?<=[\'\"])([\w\-\(\)]+\.[\w\-\%\&\=\;\?]+|[\./]*[\w\-]+/+.*?)(?=[\'\"])'
+    relative_links = re.findall(relative_pattern, content.decode())
+    relative_links.sort()
+
+    return (
+        {"absolute_links": absolute_links},
+        {"relative_links": relative_links},
+        {"total_links": len(absolute_links) + len(relative_links)}
+    )
 
 
 def main():
