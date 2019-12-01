@@ -4,7 +4,7 @@
 
 3. Should output a list of all the unique hyperlinks on the web page and summaries that 'x hyperlinks found' and both relative and absolute links should be extracted
 
-4. Should output separate lists of all the image files and documents found and a summary stating how many were found. Both absolute and relative links should be extracted
+4. Should output separate lists of all the image files and documents(docx and pdf) found and a summary stating how many were found. Both absolute and relative links should be extracted
 
 5. Should output a nicely formatted list of all the unique email addresses found and a summary that states "x email addresses found". Ideally, you should distinguish addresses found in "mailto:" fields from those included in free text.
 
@@ -44,7 +44,7 @@ Covers the special case like "/media/images/logos/ednapuni_red.png?h=60&amp;la=e
 Regex Pattern for Absolute Path
 ===============================
 
-absolute_pattern = r'https?://[\w\-\./]+|(?<=[\'\"])/[.\S]*(?=[\'\"])'
+absolute_pattern = r'(?<=[\'\"])https?://[.\S]*(?=[\'\"])|(?<=[\'\"])/[.\S]*(?=[\'\"])'
 
 
 Relative Path
@@ -57,4 +57,4 @@ Covers the special case like "ednapuni_red.png?h=60&amp;la=en&amp;w=215&amp;hash
 Regex Pattern for Relative Path
 ===============================
 
-relative_pattern = r'(?<=[\'\"])([\w\-\(\)]+\.[\w\-\%\&\=\;\?]+|[\./]*[\w\-]+/+.*?)(?=[\'\"])'
+relative_pattern = r'(?<=[\'\"])([\w\-\(\)]+\.[\w\-\%\&\=\;\?]+|[\w\-\.]+/+.*?)(?=[\'\"])'

@@ -1,0 +1,4 @@
+'9d377b10ce778c4938b3c7e2c63a229a':'bad_file1.jpg'   
+'6bbaa34b19edd6c6fa06cccf29b33125':'bad_file2.jpg'             
+'e4e7c3451a35944ca8697f9f2ac037f1':'bad_file3.jpg'      
+'1d6d9c72e3476d336e657b50a77aee05':'bad_file4.gif'

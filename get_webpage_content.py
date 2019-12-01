@@ -14,6 +14,7 @@ def get_webpage(url):
 
     # Not to do checking ssl certificate
     context = ssl._create_unverified_context()
+    web_page_content = ''
     try:
         web_page_content = urllib.request.urlopen(url, context=context).read()
     except ValueError:
@@ -22,11 +23,11 @@ def get_webpage(url):
         print('[!] Web URL must be valid')
 
     return web_page_content
-
+           
 
 def main():
-    """ Print the contents of the following web url """ 
-    web_url = "http://www.soc.napier.ac.uk/~40009856/CW/"
+    """ Print the contents of the following web url """
+    url = "http://www.soc.napier.ac.uk/~40009856/CW/"
     print(get_webpage(url))
 
 
