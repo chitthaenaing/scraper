@@ -144,6 +144,7 @@ def dict_attack(hash_lists):
     return found_pwd_lists
 
 
+# TO DO: To Refractor this function
 def check_file_extension(file):
     """ Checking file extension with its file type """
     file_hex_signatures = {
@@ -161,7 +162,7 @@ def check_file_extension(file):
             file_hex_value = binascii.hexlify(file_content)
             file_type = file_hex_signatures.get(file_hex_value)
             print(f'[x] Checking File Signature of {file} - {file_hex_value}')
-            if file_type !=  'None':
+            if file_type != 'None':
                 print(f'\t[x] File type identified as {file_type[0]}')
                 print(f'\t[x] Extension: {os.path.splitext(file)[1][1:]}')
                 if os.path.splitext(file)[1][1:] in file_type:
@@ -174,6 +175,7 @@ def check_file_extension(file):
         print(f'[-] File Error {err}')
 
 
+# TO DO: To Refractor this function
 def check_badfile(md5hash_info, bad_file):
     """ Checking file with badfiles.txt """
     file_name, md5_hash = md5hash_info
@@ -182,7 +184,7 @@ def check_badfile(md5hash_info, bad_file):
             badfiles = {}
             for line in f.readlines():
                 badfiles[line.split(':')[0][1:-1]] = line.split(':')[1].strip()[1:-1]
-            if badfiles.get(md5_hash) != None:
+            if badfiles.get(md5_hash) is not None:
                 print(f'\t[x] {file_name}({md5_hash}) known bad files as {badfiles.get(md5_hash)}')
 
     except IOError as err:
