@@ -12,6 +12,7 @@ import hashlib
 # Use this module for converting hex value
 import binascii
 
+
 def get_hyperlinks(content):
     """ Search hyperlinks in the context and return them """
 
@@ -49,12 +50,12 @@ def get_image_lists(content):
         '.jpg',
         '.JPG',
         '.jpeg',
-        '.JPEG', 
-        '.png', 
-        '.PNG', 
-        '.gif', 
-        '.GIF', 
-        '.bmp', 
+        '.JPEG',
+        '.png',
+        '.PNG',
+        '.gif',
+        '.GIF',
+        '.bmp',
         '.BMP'
     ]
     return [
@@ -126,7 +127,7 @@ def dict_attack(hash_lists):
               'monkey', 'arsenal', 'letmein', 'trustno1', 'dragon',
               'baseball', 'superman', 'iloveyou', 'starwars',
               'montypython', 'cheese', '123123', 'football', 'batman']
-    
+
     found_pwd_lists = []
     for md5_hash in hash_lists:
         found_pwd = ''
@@ -136,7 +137,7 @@ def dict_attack(hash_lists):
                 break
         if found_pwd == '':
             found_pwd = 'no matching password found'
-        
+
         found_pwd_lists.append(
             (md5_hash, found_pwd)
         )
@@ -168,25 +169,25 @@ def check_file_extension(file):
                 else:
                     print(f'\t[-] Expected: .{file_type[0]}. Investiagtion recommended.')
             else:
-                print(f'[-]\tFile type not identified - file signature not found in db!')    
+                print(f'[-]\tFile type not identified - file signature not found in db!')
     except IOError as err:
         print(f'[-] File Error {err}')
 
 
-def check_badfile(md5_hash, bad_file):
+def check_badfile(md5hash_info, bad_file):
     """ Checking file with badfiles.txt """
+    file_name, md5_hash = md5hash_info
     try:
         with open(bad_file, 'r') as f:
             badfiles = {}
             for line in f.readlines():
                 badfiles[line.split(':')[0][1:-1]] = line.split(':')[1].strip()[1:-1]
-            # print(f'{md5_hash} - {badfiles.get(md5_hash)}')
-            if badfiles.get(md5_hash) != 'None':
-                print(f'[x] {md5_hash} known bad files as {badfiles.get(md5_hash)}')
-       
+            if badfiles.get(md5_hash) != None:
+                print(f'\t[x] {file_name}({md5_hash}) known bad files as {badfiles.get(md5_hash)}')
+
     except IOError as err:
         print(f'[-] File Error {err}')
-    
+
 
 def main():
     """ Get lists of hyperlinks found in the content """

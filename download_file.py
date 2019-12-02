@@ -14,9 +14,9 @@ import os
 def preparing_download_folder(download_directory):
     """ Setting up download folder """
     if os.path.isdir(download_directory):
-    # If download folder exits
-    # Clearing old contents
-        shutil.rmtree(download_directory)    
+        # If download folder exits
+        # Clearing old contents
+        shutil.rmtree(download_directory)
     os.mkdir(download_directory)
 
 
@@ -29,4 +29,3 @@ def download_file(url, file_name, download_directory):
         print(f'\t[-] {file_name} - HTTP Error {httperr.code}: {httperr.msg}')
     except Exception:
         print(f'\t[-] Download Error - {file_name}')
-    

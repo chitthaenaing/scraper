@@ -18,12 +18,12 @@ def get_webpage(url):
     try:
         web_page_content = urllib.request.urlopen(url, context=context).read()
     except ValueError:
-        print('[!] Web URL must be in full URL address (eg. https://www.chitthaenaing.me )')   
+        print('[!] Web URL must be in full URL address (eg. https://www.chitthaenaing.me )')
     except Exception:
         print('[!] Web URL must be valid')
 
     return web_page_content
-           
+
 
 def main():
     """ Print the contents of the following web url """

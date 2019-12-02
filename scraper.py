@@ -40,7 +40,7 @@ def main():
     print(f'[x] Relative links: ')
     for index, hyperlink in enumerate(set(relative_links)):
         print(f'\t[{index+1:2d}] {hyperlink} => {relative_links.count(hyperlink)}')
-    
+
     # Searching Image Files
     print(f'[x] Searching Image Files: ')
     searching_image_start = time.time()
@@ -62,7 +62,7 @@ def main():
     print(f'[x] Document lists: ')
     for doc_link, doc_name in set(doc_lists):
         print(f'\t{doc_name} => {doc_lists.count((doc_link, doc_name))}')
-    
+
     # Searching Email Address
     print(f'[x] Searching Email Address: ')
     searching_email_start = time.time()
@@ -87,7 +87,7 @@ def main():
     print(f'[x] Phone Number lists: ')
     for phoneno in set(phoneno_lists):
         print(f'\t{phoneno} => {phoneno_lists.count(phoneno)}')
-    
+
     # Searching md5 Hash
     print(f'[x] Searching md5 hash: ')
     searching_md5hash_start = time.time()
@@ -98,7 +98,6 @@ def main():
     print(f'[x] md5 hash lists: ')
     for md5hash in set(md5hash_lists):
         print(f'\t{md5hash} => {md5hash_lists.count(md5hash)}')
-    
 
     # Cracking md5 hash with common passwords word lists
     print(f'[x] Cracking md5 hash: ')
@@ -117,10 +116,10 @@ def main():
     print(f'[x] Finished setting up download folder')
     print(f'[x] Downloading Files: ')
     for file_link, file_name in image_lists + doc_lists:
-    
+
         if not file_link.startswith("http"):
             file_link = web_url + file_link
-        
+
         if file_name in [os.path.basename(file) for file in os.scandir(download_directory)]:
             file_name = os.path.splitext(file_name)[0] + '_' + str(id(file_name)) + os.path.splitext(file_name)[1]
 
@@ -132,9 +131,16 @@ def main():
 
     # Checking Badfile
     print(f'[x] Checking Bad files')
-    for file in os.listdir(download_directory):
-        check_badfile(hashlib.md5(file.encode()).hexdigest(), os.getcwd() + os.sep + 'badfiles.txt')
+    for file_name in os.listdir(download_directory):
+        with open(os.path.abspath(download_directory + os.sep + file_name), 'rb') as file:
+            check_badfile(
+                (
+                    file_name, hashlib.md5(file.read()).hexdigest()
+                ),
+                os.getcwd() + os.sep + 'badfiles.txt'
+            )
     print(f'[x] Finished Checking Bad files')
+
 
 if __name__ == '__main__':
     main()
