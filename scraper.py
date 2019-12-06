@@ -5,11 +5,14 @@
 
 import sys
 import time
-from global_var_config import *
+from global_var_config import global_variables_config
 from display_format import print_process_format
 
 
 def loop_sub_process_lists(sub_process_lists):
+    """
+        Iterate through sub process lists
+    """
     if sub_process_lists is not None and len(sub_process_lists) > 0:
         for sub_process in sub_process_lists:
             params_key = list(sub_process['params'].keys())[0]

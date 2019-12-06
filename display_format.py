@@ -21,7 +21,7 @@ from web_page_forensic import (
     get_md5hash_lists,
     dict_attack
 )
-from global_var_config import *
+from global_var_config import global_variables_config
 from download_file import download_files
 from check_files import (
     check_file_extension_indir,

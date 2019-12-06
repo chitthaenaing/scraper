@@ -7,7 +7,7 @@
 import urllib.request
 # Use this module for checking SSL certificate
 import ssl
-from global_var_config import *
+from global_var_config import global_variables_config
 from display_output import display
 
 

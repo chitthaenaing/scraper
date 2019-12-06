@@ -9,7 +9,7 @@ import urllib.request
 import shutil
 # Use this module for parsing path
 import os
-from global_var_config import *
+from global_var_config import global_variables_config
 from display_output import display
 
 web_url = global_variables_config['URL']

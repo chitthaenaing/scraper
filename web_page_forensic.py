@@ -12,7 +12,7 @@ import hashlib
 # Use this module for converting hex value
 import binascii
 from display_output import display
-from global_var_config import *
+from global_var_config import global_variables_config
 
 
 def get_hyperlinks(content):

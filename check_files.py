@@ -5,7 +5,7 @@
 import os
 import binascii
 import hashlib
-from global_var_config import *
+from global_var_config import global_variables_config
 from display_output import display
 
 
