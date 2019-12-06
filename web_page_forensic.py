@@ -11,6 +11,8 @@ import os
 import hashlib
 # Use this module for converting hex value
 import binascii
+from display_output import display
+from global_var_config import *
 
 
 def get_hyperlinks(content):
@@ -30,7 +32,7 @@ def get_hyperlinks(content):
     # Starts with dots - ./folder/a.jpg or ../folder/a.jpg
     # Covers the special case like "ednapuni_red.png?h=60&amp;la=en&amp;w=215&amp;hash=39DC25ADF6177FF9A1AEB6F9D09B30F47FE593E2"
 
-    relative_pattern = r'(?<=[\'\"])([\w\-\(\)]+\.[\w\-\%\&\=\;\?]+|[\w\-\.]+/+.*?)(?=[\'\"])'
+    relative_pattern = r'(?<=[\'\"])([\w\-\(\)\%]+\.[\w\-\%\&\=\;\?]+|[\w\-\.]+/+.*?)(?=[\'\"])'
     relative_links = re.findall(relative_pattern, content.decode())
     relative_links.sort()
 
@@ -106,7 +108,7 @@ def get_email_lists(content):
 
 def get_phoneno_lists(content):
     """ Searching Phone Number and return them """
-    phoneno_pattern = r'\+\d{1,3}[\s\-]?\(?\d\)?[\d\-\s]+(?=\d)'
+    phoneno_pattern = r'\+?\d{1,3}[\s\-]?\(?\d\)?[\d\-\s]{6,12}(?:\d)'
     phoneno_lists = re.findall(phoneno_pattern, content.decode())
     return phoneno_lists
 
@@ -118,77 +120,29 @@ def get_md5hash_lists(content):
     return md5hash_lists
 
 
-def dict_attack(hash_lists):
-    """Checks password hash, against a dictionary of common passwords"""
-
-    # set up list of common passwords
-    common = ['123', '1234', '12345', '123456', '1234567', '12345678',
-              'password', 'qwerty', 'abc', 'abcd', 'abc123', '111111',
-              'monkey', 'arsenal', 'letmein', 'trustno1', 'dragon',
-              'baseball', 'superman', 'iloveyou', 'starwars',
-              'montypython', 'cheese', '123123', 'football', 'batman']
+def dict_attack(hash_lists, word_lists_txt):
+    """Checks password hash, against a dictionary of password lists"""
 
     found_pwd_lists = []
     for md5_hash in hash_lists:
         found_pwd = ''
-        for pwd in common:
-            if hashlib.md5(pwd.encode()).hexdigest() == md5_hash:
-                found_pwd = pwd
-                break
-        if found_pwd == '':
-            found_pwd = 'no matching password found'
+        try:
+            with open(word_lists_txt, 'rb') as word_list_file:
+                for pwd in word_list_file.readlines():
+                    if hashlib.md5(pwd.strip()).hexdigest() == md5_hash:
+                        found_pwd = pwd.strip().decode()
+                        break
+                if found_pwd == '':
+                    found_pwd = 'no matching password found'
 
-        found_pwd_lists.append(
-            (md5_hash, found_pwd)
-        )
+                found_pwd_lists.append(
+                    (md5_hash, found_pwd)
+                )
+
+        except IOError as err:
+            display(f'[-] File Error {err} - {word_lists_txt} cannot be opened', file=global_variables_config["output_file"])
+
     return found_pwd_lists
-
-
-# TO DO: To Refractor this function
-def check_file_extension(file):
-    """ Checking file extension with its file type """
-    file_hex_signatures = {
-        b'474946': ('gif', 'GIF'),
-        b'ffd8ff': ('jpg', 'JPG', 'jpeg', 'JPEG'),
-        b'89504e': ('png', 'PNG'),
-        b'424d': ('bmp', 'BMP'),
-        b'504b03': ('docx', 'DOCX'),
-        b'255044': ('pdf', 'PDF')
-    }
-
-    try:
-        with open(file, 'rb') as f:
-            file_content = f.read(3)
-            file_hex_value = binascii.hexlify(file_content)
-            file_type = file_hex_signatures.get(file_hex_value)
-            print(f'[x] Checking File Signature of {file} - {file_hex_value}')
-            if file_type != 'None':
-                print(f'\t[x] File type identified as {file_type[0]}')
-                print(f'\t[x] Extension: {os.path.splitext(file)[1][1:]}')
-                if os.path.splitext(file)[1][1:] in file_type:
-                    print(f'\t[+] OK - valid extension for this file type')
-                else:
-                    print(f'\t[-] Expected: .{file_type[0]}. Investiagtion recommended.')
-            else:
-                print(f'[-]\tFile type not identified - file signature not found in db!')
-    except IOError as err:
-        print(f'[-] File Error {err}')
-
-
-# TO DO: To Refractor this function
-def check_badfile(md5hash_info, bad_file):
-    """ Checking file with badfiles.txt """
-    file_name, md5_hash = md5hash_info
-    try:
-        with open(bad_file, 'r') as f:
-            badfiles = {}
-            for line in f.readlines():
-                badfiles[line.split(':')[0][1:-1]] = line.split(':')[1].strip()[1:-1]
-            if badfiles.get(md5_hash) is not None:
-                print(f'\t[x] {file_name}({md5_hash}) known bad files as {badfiles.get(md5_hash)}')
-
-    except IOError as err:
-        print(f'[-] File Error {err}')
 
 
 def main():
