@@ -1,0 +1,218 @@
+===============================
+Getting Webpage Content via URL
+===============================
+[*] Finished Retrieving URL - within 0.797083855 s
+==================
+Getting Hyperlinks
+==================
+[*] Finished Searching Hyperlinks within 0.007517815 s
+[*] 32 hyperlinks found!
+[*] Absolute links: 
+	[ 1] https://link.theplatform.com/s/NGweTC/media/rZP5nY5nkQ9s?format=redirect => 1
+	[ 2] http://cwe.mitre.org/top25/ => 1
+	[ 3] https://resizing.flixster.com/00zPNKDlHUNtYCEEAx3V47qxtw4=/fit-in/1152x864/v1.bjsxNzQ3MTg4O2o7MTgwMjA7MTIwMDs1NzYwOzM4NDA => 1
+	[ 4] https://www.rottentomatoes.com/m/1000085_2001_a_space_odyssey => 1
+	[ 5] http://www.napier.ac.uk/en/Courses/MSc-Advanced-Security-and-Digital-Forensics-Postgraduate-FullTime => 1
+	[ 6] http://php.net/manual/en/intro-whatis.php => 1
+	[ 7] http://asecuritysite.com => 1
+	[ 8] https://www.rottentomatoes.com/m/the_martian => 2
+	[ 9] http://web.mit.edu/hackl/www/lab/turkshop/slides/regex-cheatsheet.pdf => 1
+	[10] https://www.rottentomatoes.com/m/star_wars_the_last_jedi/ => 1
+	[11] http://www.asecuritysite.com/content/icon_clown.gif => 1
+	[12] https://resizing.flixster.com/rLAoq_aX1ZYgon9StZ9358ikwnY=/300x300/v1.bjsxNzQ3MTg4O2o7MTc5MzA7MTIwMDs1NzYwOzM4NDA => 1
+	[13] http://www.rottentomatoes.com/m/1000085_2001_a_space_odyssey/pictures => 1
+	[14] https://www.rottentomatoes.com/m/star_wars_the_last_jedi/trailers/11304078 => 1
+[x] Relative links: 
+	[ 1] nothingtoseehere.pdf => 1
+	[ 2] msc_asdf_logo.jpeg => 1
+	[ 3] broken.docx => 1
+	[ 4] not-a-lot-of-content-page.html => 1
+	[ 5] Doc100.docx => 1
+	[ 6] subfolder/Martian.docx => 1
+	[ 7] gchq-certified.jpg => 1
+	[ 8] icon_clown.gif => 1
+	[ 9] subfolder/icon_clown.gif => 1
+	[10] dingbat.jpg => 1
+	[11] 2001-a-space-odyssey.JPG => 1
+	[12] subfolder/The%20Martian%20-%20image.jpg => 1
+	[13] xine.png => 1
+	[14] essays.gif => 1
+	[15] gear3.png => 1
+	[16] big.jpg => 1
+	[17] monty-python-(1).bmp => 1
+===================
+Getting Image Lists
+===================
+[*] Finished Searching Image Lists within 0.004820824 s
+[*] 13 image files found!
+[x] Image lists: 
+	essays.gif => 1
+	gchq-certified.jpg => 1
+	gear3.png => 1
+	icon_clown.gif => 1
+	icon_clown.gif => 1
+	msc_asdf_logo.jpeg => 1
+	big.jpg => 1
+	monty-python-(1).bmp => 1
+	2001-a-space-odyssey.JPG => 1
+	dingbat.jpg => 1
+	xine.png => 1
+	icon_clown.gif => 1
+	The%20Martian%20-%20image.jpg => 1
+==================
+Downloading Images
+==================
+	[*] Finished downloading icon_clown.gif
+	[*] Finished downloading 2001-a-space-odyssey.JPG
+	[*] Finished downloading big.jpg
+	[*] Finished downloading dingbat.jpg
+	[*] Finished downloading essays.gif
+	[-] gchq-certified.jpg - HTTP Error 404: Not Found
+	[*] Finished downloading gear3.png
+	[*] Finished downloading icon_clown_4343053872.gif
+	[*] Finished downloading monty-python-(1).bmp
+	[*] Finished downloading msc_asdf_logo.jpeg
+	[*] Finished downloading The%20Martian%20-%20image.jpg
+	[*] Finished downloading icon_clown_4343100016.gif
+	[*] Finished downloading xine.png
+[*] Finished Downloading Images within 31.191901922 s
+======================
+Getting Document Lists
+======================
+[*] Finished Searching Document Lists within 0.002993822 s
+[*] 5 document files found!
+[x] Document lists: 
+	Martian.docx => 1
+	nothingtoseehere.pdf => 1
+	regex-cheatsheet.pdf => 1
+	broken.docx => 1
+	Doc100.docx => 1
+=====================
+Downloading Documents
+=====================
+	[*] Finished downloading regex-cheatsheet.pdf
+	[*] Finished downloading Doc100.docx
+	[-] broken.docx - HTTP Error 404: Not Found
+	[*] Finished downloading nothingtoseehere.pdf
+	[*] Finished downloading Martian.docx
+[*] Finished Downloading Documents within 14.517271042 s
+=====================
+Getting Email Address
+=====================
+[*] Finished Searching Email Address within 0.007661819 s
+[*] 6 email addresses found!
+[x] FreeText Email lists: 
+	mitcho@mitcho.com => 1
+	p.leimich@napier.ac.uk => 1
+	ebteam@mail.napier.ac.uk => 1
+	webteam@mail.napier.ac.uk => 1
+	bill@napier-mail.ac.uk => 1
+[x] Mailto Email lists: 
+	webteam@mail.napier.ac.uk => 1
+====================
+Getting Phone Number
+====================
+[*] Finished Searching Phone Number within 0.004951000 s
+[*] 5 phone numbers found!
+[x] Phone Number lists: 
+	0131 455 2593 => 1
+	+44-131-4552706 => 2
+	+44 (0)333 900 6040 => 1
+	+44(0)1314552759 => 1
+======================
+Getting md5 Hash Lists
+======================
+[*] Finished Searching md5 Hash Lists within 0.001052856 s
+[*] 5 md5 hash found!
+[x] md5 hash lists: 
+	5fcfd41e547a12215b173ff47fdd3739 => 1
+	5badcaf789d3d1d09794d8f021f40f0e => 1
+	d1133275ee2118be63a577af759fc052 => 1
+	fea0f1f6fede90bd0a925b4194deac11 => 2
+=================
+Cracking md5 Hash
+=================
+[*] Finished Cracking md5 Hash within 3.367740154 s
+	5fcfd41e547a12215b173ff47fdd3739 => trustno1
+	5badcaf789d3d1d09794d8f021f40f0e => starwars
+	d1133275ee2118be63a577af759fc052 => joshua
+	fea0f1f6fede90bd0a925b4194deac11 => cheese
+==========================================================================
+Checking Extension of Each File in Download Folder with its file signature
+==========================================================================
+[x] Checking File Signature of /Users/chitthaenaing/Desktop/python_coursework/scraper/download/icon_clown_4343100016.gif - b'474946'
+	[x] File type identified as gif
+	[x] Extension: gif
+	[+] OK - valid extension for this file type
+[x] Checking File Signature of /Users/chitthaenaing/Desktop/python_coursework/scraper/download/gear3.png - b'89504e'
+	[x] File type identified as png
+	[x] Extension: png
+	[+] OK - valid extension for this file type
+[x] Checking File Signature of /Users/chitthaenaing/Desktop/python_coursework/scraper/download/The%20Martian%20-%20image.jpg - b'ffd8ff'
+	[x] File type identified as jpg
+	[x] Extension: jpg
+	[+] OK - valid extension for this file type
+[x] Checking File Signature of /Users/chitthaenaing/Desktop/python_coursework/scraper/download/dingbat.jpg - b'ffd8ff'
+	[x] File type identified as jpg
+	[x] Extension: jpg
+	[+] OK - valid extension for this file type
+[x] Checking File Signature of /Users/chitthaenaing/Desktop/python_coursework/scraper/download/Doc100.docx - b'504b03'
+	[x] File type identified as docx
+	[x] Extension: docx
+	[+] OK - valid extension for this file type
+[x] Checking File Signature of /Users/chitthaenaing/Desktop/python_coursework/scraper/download/regex-cheatsheet.pdf - b'255044'
+	[x] File type identified as pdf
+	[x] Extension: pdf
+	[+] OK - valid extension for this file type
+[x] Checking File Signature of /Users/chitthaenaing/Desktop/python_coursework/scraper/download/big.jpg - b'ffd8ff'
+	[x] File type identified as jpg
+	[x] Extension: jpg
+	[+] OK - valid extension for this file type
+[x] Checking File Signature of /Users/chitthaenaing/Desktop/python_coursework/scraper/download/Martian.docx - b'ffd8ff'
+	[x] File type identified as jpg
+	[x] Extension: docx
+	[-] Expected: .jpg. Investigation recommended.
+[x] Checking File Signature of /Users/chitthaenaing/Desktop/python_coursework/scraper/download/nothingtoseehere.pdf - b'ffd8ff'
+	[x] File type identified as jpg
+	[x] Extension: pdf
+	[-] Expected: .jpg. Investigation recommended.
+[x] Checking File Signature of /Users/chitthaenaing/Desktop/python_coursework/scraper/download/essays.gif - b'474946'
+	[x] File type identified as gif
+	[x] Extension: gif
+	[+] OK - valid extension for this file type
+[x] Checking File Signature of /Users/chitthaenaing/Desktop/python_coursework/scraper/download/monty-python-(1).bmp - b'ffd8ff'
+	[x] File type identified as jpg
+	[x] Extension: bmp
+	[-] Expected: .jpg. Investigation recommended.
+[x] Checking File Signature of /Users/chitthaenaing/Desktop/python_coursework/scraper/download/msc_asdf_logo.jpeg - b'ffd8ff'
+	[x] File type identified as jpg
+	[x] Extension: jpeg
+	[+] OK - valid extension for this file type
+[x] Checking File Signature of /Users/chitthaenaing/Desktop/python_coursework/scraper/download/xine.png - b'89504e'
+	[x] File type identified as png
+	[x] Extension: png
+	[+] OK - valid extension for this file type
+[x] Checking File Signature of /Users/chitthaenaing/Desktop/python_coursework/scraper/download/icon_clown.gif - b'474946'
+	[x] File type identified as gif
+	[x] Extension: gif
+	[+] OK - valid extension for this file type
+[x] Checking File Signature of /Users/chitthaenaing/Desktop/python_coursework/scraper/download/2001-a-space-odyssey.JPG - b'ffd8ff'
+	[x] File type identified as jpg
+	[x] Extension: JPG
+	[+] OK - valid extension for this file type
+[x] Checking File Signature of /Users/chitthaenaing/Desktop/python_coursework/scraper/download/icon_clown_4343053872.gif - b'474946'
+	[x] File type identified as gif
+	[x] Extension: gif
+	[+] OK - valid extension for this file type
+[*] Finished Checking File Extension In a Directory within 0.054733038 s
+====================================================================
+Checking hex value of Each File in Download Folder with badfiles.txt
+====================================================================
+	[x] Martian.docx(e4e7c3451a35944ca8697f9f2ac037f1) known bad files as bad_file3.jpg
+	[x] nothingtoseehere.pdf(6bbaa34b19edd6c6fa06cccf29b33125) known bad files as bad_file2.jpg
+[*] Finished Checking Badfiles In a Directory within 0.058542967 s
+=====================================================
+Checking the content similarity of the same filenames
+=====================================================
+	[*] icon_clown_4343100016.gif and icon_clown.gif have same 706a5076efba4babff1a1a22d394f9c7
+[*] Finished Checking File Content Similarity within 0.012592316 s

@@ -7,6 +7,8 @@
 import urllib.request
 # Use this module for checking SSL certificate
 import ssl
+from global_var_config import global_variables_config
+from display_output import display
 
 
 def get_webpage(url):
@@ -18,9 +20,9 @@ def get_webpage(url):
     try:
         web_page_content = urllib.request.urlopen(url, context=context).read()
     except ValueError:
-        print('[!] Web URL must be in full URL address (eg. https://www.chitthaenaing.me )')
+        display('[!] Web URL must be in full URL address (eg. https://www.chitthaenaing.me )', file=global_variables_config["output_file"])
     except Exception:
-        print('[!] Web URL must be valid')
+        display('[!] Web URL must be valid', file=global_variables_config["output_file"])
 
     return web_page_content
 
